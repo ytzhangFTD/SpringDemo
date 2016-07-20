@@ -42,6 +42,7 @@
 
     <bean id="studentBo" class="com.ytzhang.test.Bo.impl.StudentBoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <property name="teacherBoImpl" ref="teacherBo"/>
     </bean>
     <bean id="teacherBo" class="com.ytzhang.test.Bo.impl.TeacherBoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
