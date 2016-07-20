@@ -1,4 +1,4 @@
-package com.ytzhang.test.mybatis.model;
+package com.ytzhang.test.mybatis.model.Do;
 
 /*
  * Copyright 2016 Alibaba.com All right reserved. This software is the confidential and proprietary information of
@@ -9,7 +9,7 @@ package com.ytzhang.test.mybatis.model;
 /**
  * 类TestUser的实现描述：TODO 类实现描述 wb-zhangyitong 2016/7/20 10:22
  */
-public class TestUser {
+public class Student {
 
     private int    id;
     private String name;

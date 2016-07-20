@@ -1,6 +1,6 @@
 package com.ytzhang.test;
 
-import com.ytzhang.test.mybatis.model.User;
+import com.ytzhang.test.mybatis.model.Do.User;
 import com.ytzhang.test.mybatis.model.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
