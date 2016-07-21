@@ -17,5 +17,17 @@ public interface StudentBo {
 
     public void addUser2(Student student);
 
-    public void addTeacher(Teacher teacher);
+    public void addTeacher2(Teacher teacher);
+
+    public void addUser3(Student student);
+
+    public void addUser4(Student student);
+
+    public void addUser5(Student student);
+
+    public void addUser6(Student student);
+
+    public void addUser7(Student student);
+
+    public void addUser8(Student student);
 }

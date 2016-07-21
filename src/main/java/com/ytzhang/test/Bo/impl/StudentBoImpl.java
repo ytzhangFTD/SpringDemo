@@ -38,26 +38,71 @@ public class StudentBoImpl extends JdbcDaoSupport implements StudentBo {
         }
     }
 
-	/**
-	 * 在一个方法里调用该类另一个的包含事务的方法，两个方法事务传播特性都为REQUIRED
-	 *
-	 * @param student
-	 */
+    /**
+     * 在一个方法里调用该类另一个的包含事务的方法，两个方法事务传播特性都为REQUIRED
+     *
+     * @param student
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     public void addUser2(Student student) {
         String sql = "insert into user(name) values(?)";
         this.getJdbcTemplate().update(sql, student.getName());
         try {
             Teacher teacher = new Teacher("teacher2");
-            this.addTeacher(teacher);
+            this.addTeacher2(teacher);
         } catch (Exception e) {
         }
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void addTeacher(Teacher teacher) {
+    public void addTeacher2(Teacher teacher) {
         String sql = "insert into teacher(name) values(?)";
         this.getJdbcTemplate().update(sql, teacher.getName());
-		throw new RuntimeException();
+        throw new RuntimeException();
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+//    @Transactional(propagation = Propagation.REQUIRED)
+    public void addUser3(Student student) {
+        String sql = "insert into user(name) values(?)";
+        this.getJdbcTemplate().update(sql, student.getName());
+        try {
+            Teacher teacher = new Teacher("teacher3");
+            teacherBoImpl.addTeacher2(teacher);
+        } catch (Exception e) {
+        }
+    }
+
+	@Transactional(propagation = Propagation.MANDATORY)
+	public void addUser4(Student student) {
+
+	}
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void addUser5(Student student) {
+
+    }
+
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void addUser6(Student student) {
+
+    }
+
+    @Transactional(propagation = Propagation.NEVER)
+    public void addUser7(Student student) {
+
+    }
+
+    @Transactional(propagation = Propagation.NESTED)
+    public void addUser8(Student student) {
+		String sql = "insert into user(name) values(?)";
+		this.getJdbcTemplate().update(sql, student.getName());
+		try {
+			Teacher teacher = new Teacher("teacher7");
+			teacherBoImpl.addTeacher7(teacher);
+		} catch (Exception e) {
+		}
+//		throw new RuntimeException();
+	}
+
 }

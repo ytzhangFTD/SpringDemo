@@ -1,0 +1,38 @@
+Spring Transcation 事务传播特性
+	PROPAGATION_REQUIRED: 如果存在一个事务，则支持当前事务。如果没有事务则开启(默认的spring事务传播级别)
+	PROPAGATION_SUPPORTS: 如果存在一个事务，支持当前事务。如果没有事务，则非事务的执行
+	PROPAGATION_MANDATORY: 如果已经存在一个事务，支持当前事务。如果没有一个活动的事务，则抛出异常。
+	PROPAGATION_REQUIRES_NEW: 总是开启一个新的事务。如果一个事务已经存在，则将这个存在的事务挂起。
+	PROPAGATION_NOT_SUPPORTED: 总是非事务地执行，并挂起任何存在的事务。
+	PROPAGATION_NEVER: 总是非事务地执行，如果存在一个活动事务，则抛出异常
+	PROPAGATION_NESTED：如果一个活动的事务存在，则运行在一个嵌套的事务中. 如果没有活动事务, 则按TransactionDefinition.PROPAGATION_REQUIRED 属性执行
+
+A类methodA
+B类methodB
+
+事务的新建和提交都是在代理类中实现的，所以一个类的两个方法同时加事务传播特性声明是没用的，依然会当做一个事务提交。这部分可以通过研究spring源码，画出事务执行图来加深理解。
+以下所介绍的情景都是位于两个类的不同方法组合：
+A类methodA REQUIRED
+B类methodB REQUIRED
+A类methodA调用B类methodB，catch methodB异常，因为methodB异常时标记了事务rollback only，所以methodA 提交事务就报异常了。
+
+其余情况比较简单，不做解析。
+最后一种 NESTED
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

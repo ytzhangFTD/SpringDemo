@@ -18,7 +18,7 @@ import com.ytzhang.test.mybatis.model.Do.Student;
 public class StudentBoImplTest {
 
     /**
-     * PROPAGATION_REQUIRED: 如果存在一个事务，则支持当前事务。如果没有事务则开启
+     * PROPAGATION_REQUIRED: 如果存在一个事务，则支持当前事务。如果没有事务则开启(默认的spring事务传播级别)
 	 * PROPAGATION_SUPPORTS: 如果存在一个事务，支持当前事务。如果没有事务，则非事务的执行
 	 * PROPAGATION_MANDATORY: 如果已经存在一个事务，支持当前事务。如果没有一个活动的事务，则抛出异常。
 	 * PROPAGATION_REQUIRES_NEW: 总是开启一个新的事务。如果一个事务已经存在，则将这个存在的事务挂起。
@@ -55,6 +55,9 @@ public class StudentBoImplTest {
 	 * A中有两个方法，methodA和methodB，methodA和methodB都声明事务传播特性为REQUIRED且methodA调用methodB
      * 在methodA中对产生异常的methodB，catch异常
 	 * 运行结果 methodA数据新建成功，methodB数据也新建成功
+	 * 原因：A类调用本身方法时并没有经过代理类，所以并没有在methodB前后对事务进行处理，两个方法都在一个事务中，并且异常也被处理了
+	 * 所以 当methodA提交事务的时候，methodB也就一并提交了
+	 *
      */
     @Test(groups = "ytzhang", enabled = true)
     public void testAddUser2() throws Exception {
@@ -63,4 +66,39 @@ public class StudentBoImplTest {
         Student user = new Student("student2");
         studentBo.addUser2(user);
     }
+
+	/**
+	 * methodA  SUPPORTS
+	 * methodB  SUPPORTS
+	 * PROPAGATION_SUPPORTS: 如果存在一个事务，支持当前事务。如果没有事务，则非事务的执行
+	 * 两个方法如果第一个新建事务的话，则整个方法加入事务，否则两个方法都是非事务地执行
+	 *
+	 */
+	@Test(groups = "ytzhang", enabled = true)
+	public void testAddUser3() throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		StudentBo studentBo = (StudentBo) applicationContext.getBean("studentBo");
+		Student user = new Student("student3");
+		studentBo.addUser3(user);
+	}
+
+	/**
+	 * methodA  NESTED
+	 * methodB  NESTED
+	 * PROPAGATION_NESTED：如果一个活动的事务存在，则运行在一个嵌套的事务中. 如果没有活动事务, 则按TransactionDefinition.PROPAGATION_REQUIRED 属性执行
+	 * 开始没有事务存在，所以新建一个事务，
+	 * methodB已经有事务，所以运行在一个嵌套事务中，并新建一个savepoint
+	 * methodA提交事务时，嵌套事务运行失败，退回savepoint，但外事务正常提交。
+	 * 1）异常在嵌套事务中，则嵌套事务运行失败，退回savepoint，但外事务正常提交。
+	 * 2）如果异常发生在外事务中，则外事务提交失败，连带嵌套事务一起回滚。
+	 *
+	 */
+	@Test(groups = "ytzhang", enabled = true)
+	public void testAddUser4() throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		StudentBo studentBo = (StudentBo) applicationContext.getBean("studentBo");
+		Student user = new Student("student8");
+		studentBo.addUser8(user);
+	}
+
 }
