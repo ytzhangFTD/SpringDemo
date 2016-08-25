@@ -1,4 +1,4 @@
-package com.ytzhang.test;
+package com.ytzhang.test.maintest;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -6,8 +6,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.ytzhang.test.Bo.StudentBo;
-import com.ytzhang.test.mybatis.model.Do.Student;
+import com.ytzhang.test.bo.StudentBo;
+import com.ytzhang.test.mybatis.Do.Student;
 
 /**
  * StudentBoImpl Tester.

@@ -1,4 +1,4 @@
-package com.ytzhang.test.mybatis.model;
+package com.ytzhang.test.mybatis;
 
 import java.util.ArrayList;
 import java.util.Date;

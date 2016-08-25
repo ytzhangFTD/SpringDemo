@@ -1,4 +1,4 @@
-package com.ytzhang.test;
+package com.ytzhang.test.maintest;
 
 /**
  * Created by ytzhang on 2016/5/13.

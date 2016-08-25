@@ -1,4 +1,4 @@
-package com.ytzhang.test;
+package com.ytzhang.test.maintest;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

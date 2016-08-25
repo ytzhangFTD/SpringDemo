@@ -1,7 +1,8 @@
-package com.ytzhang.test.mybatis.model.mapper;
+package com.ytzhang.test.mybatis.mapper;
 
-import com.ytzhang.test.mybatis.model.Do.User;
-import com.ytzhang.test.mybatis.model.UserExample;
+import com.ytzhang.test.mybatis.Do.User;
+import com.ytzhang.test.mybatis.UserExample;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -14,4 +14,5 @@ package com.ytzhang.test.builder.abstractfactory;
  * </pre>
  */
 public interface Bullet {
+//	public String bang();
 }

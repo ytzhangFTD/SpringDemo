@@ -1,4 +1,4 @@
-package com.ytzhang.test.mybatis.model.Do;
+package com.ytzhang.test.mybatis.Do;
 
 /**
  * 类TestTeacher的实现描述：TODO 类实现描述 wb-zhangyitong 2016/7/20 13:53

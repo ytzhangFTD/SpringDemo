@@ -40,11 +40,11 @@
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
-    <bean id="studentBo" class="com.ytzhang.test.Bo.impl.StudentBoImpl">
+    <bean id="studentBo" class="com.ytzhang.test.bo.impl.StudentBoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
         <property name="teacherBoImpl" ref="teacherBo"/>
     </bean>
-    <bean id="teacherBo" class="com.ytzhang.test.Bo.impl.TeacherBoImpl">
+    <bean id="teacherBo" class="com.ytzhang.test.bo.impl.TeacherBoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 </beans>

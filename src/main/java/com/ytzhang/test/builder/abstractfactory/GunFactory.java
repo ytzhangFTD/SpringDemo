@@ -7,11 +7,28 @@ package com.ytzhang.test.builder.abstractfactory;
  * into with Alibaba.com.
  */
 
+
+import org.apache.commons.lang.StringUtils;
+
 /**
  * <pre>
  *  类GunFactory的实现描述：TODO 类实现描述
  *  wb-zhangyitong  2016/8/25 15:09
  * </pre>
  */
-public class GunFactory {
+public class GunFactory implements AbstractFactory{
+	public Gun getGun(String gunType){
+		if (StringUtils.isBlank(gunType)){
+			return null;
+		}
+		if (gunType.equals("AK")){
+			return new AkGun();
+		}
+		return null;
+	}
+
+	public Bullet getBullet(String bulletType) {
+		return null;
+	}
+
 }

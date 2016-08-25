@@ -1,7 +1,7 @@
-package com.ytzhang.test.Bo;
+package com.ytzhang.test.bo;
 
-import com.ytzhang.test.mybatis.model.Do.Student;
-import com.ytzhang.test.mybatis.model.Do.Teacher;
+import com.ytzhang.test.mybatis.Do.Student;
+import com.ytzhang.test.mybatis.Do.Teacher;
 
 /**
  * 类UserBo的实现描述：TODO 类实现描述 wb-zhangyitong 2016/7/20 10:23

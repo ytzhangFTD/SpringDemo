@@ -1,4 +1,4 @@
-package com.ytzhang.test.mybatis.model.Do;
+package com.ytzhang.test.mybatis.Do;
 
 import java.util.Date;
 

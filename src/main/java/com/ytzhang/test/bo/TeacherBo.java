@@ -1,4 +1,4 @@
-package com.ytzhang.test.Bo;
+package com.ytzhang.test.bo;
 
 /*
  * Copyright 2016 Alibaba.com All right reserved. This software is the confidential and proprietary information of
@@ -6,7 +6,7 @@ package com.ytzhang.test.Bo;
  * in accordance with the terms of the license agreement you entered into with Alibaba.com.
  */
 
-import com.ytzhang.test.mybatis.model.Do.Teacher;
+import com.ytzhang.test.mybatis.Do.Teacher;
 
 /**
  * 类TeachBo的实现描述：TODO 类实现描述 wb-zhangyitong 2016/7/20 13:51
