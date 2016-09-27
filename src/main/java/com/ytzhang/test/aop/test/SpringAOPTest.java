@@ -1,4 +1,4 @@
-package com.ytzhang.test;
+package com.ytzhang.test.aop.test;
 
 import com.ytzhang.test.aop.Bussiness;
 import org.springframework.context.ApplicationContext;

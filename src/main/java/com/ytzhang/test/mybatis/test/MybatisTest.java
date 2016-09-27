@@ -1,4 +1,4 @@
-package com.ytzhang.test;
+package com.ytzhang.test.mybatis.test;
 
 import com.ytzhang.test.mybatis.model.User;
 import com.ytzhang.test.mybatis.model.mapper.UserMapper;
