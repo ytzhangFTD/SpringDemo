@@ -346,7 +346,8 @@ public class ShowMail {
         if (osName == null) {
             osName = "";
         }
-        if (osName.toLowerCase().indexOf("win") != -1) {
+//        if (osName.toLowerCase().indexOf("win") != -1)
+        if (osName.toLowerCase().contains("win")) {
             separator = "\\";
             if (storeDir == null || storeDir.equals("")) storeDir = "c:\\tmp";
         } else {
