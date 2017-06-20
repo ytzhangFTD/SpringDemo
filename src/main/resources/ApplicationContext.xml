@@ -21,6 +21,11 @@
 
     <bean id="aspectBean" class="com.ytzhang.test.aop.AspectBean" />
     <bean id="testBussiness" class="com.ytzhang.test.aop.Bussiness"></bean>
-
-
+<!--职责链模式-->
+    <bean id="managerHandler" class="com.ytzhang.test.职责链模式.ManagerHandler">
+        <property name="handler" ref="ceoHandler"></property>
+    </bean>
+    <bean id="ceoHandler" class="com.ytzhang.test.职责链模式.CeoHandler">
+        <property name="handler" ref="managerHandler"></property>
+    </bean>
 </beans>
