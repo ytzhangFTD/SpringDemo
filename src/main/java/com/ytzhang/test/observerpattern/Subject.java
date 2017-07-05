@@ -1,4 +1,4 @@
-package com.ytzhang.test.observerPattern;
+package com.ytzhang.test.observerpattern;
 /*
  * Copyright 2017 Alibaba.com All right reserved. This software is the
  * confidential and proprietary information of Alibaba.com ("Confidential
