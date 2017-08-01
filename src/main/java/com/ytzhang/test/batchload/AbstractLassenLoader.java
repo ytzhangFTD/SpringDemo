@@ -3,6 +3,7 @@ package com.ytzhang.test.batchload;
 
 import java.util.List;
 
+import com.ytzhang.test.batchload.loader.LassenLoader;
 import org.springframework.core.io.Resource;
 
 /**

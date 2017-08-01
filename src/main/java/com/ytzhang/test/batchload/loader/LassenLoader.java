@@ -1,4 +1,4 @@
-package com.ytzhang.test.batchload;
+package com.ytzhang.test.batchload.loader;
 
 
 import java.util.List;

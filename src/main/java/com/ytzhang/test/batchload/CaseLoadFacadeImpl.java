@@ -3,6 +3,8 @@ package com.ytzhang.test.batchload;
 
 import java.util.List;
 
+import com.ytzhang.test.batchload.model.LegalCase;
+import com.ytzhang.test.batchload.model.LegalCaseOther;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
