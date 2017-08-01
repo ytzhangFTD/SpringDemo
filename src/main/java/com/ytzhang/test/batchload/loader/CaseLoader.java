@@ -3,9 +3,9 @@ package com.ytzhang.test.batchload.loader;
 import java.io.IOException;
 import java.util.List;
 
-import com.ytzhang.test.batchload.AbstractLassenLoader;
-import com.ytzhang.test.batchload.reader.LassenReader;
 import com.ytzhang.test.batchload.model.LegalCase;
+import com.ytzhang.test.batchload.model.Result;
+import com.ytzhang.test.batchload.reader.LassenReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 
@@ -40,5 +40,14 @@ public class CaseLoader extends AbstractLassenLoader<LegalCase> {
     @Override
     public void save(LegalCase data) {
         System.out.println("save legalcase");
+    }
+
+    @Override
+    public Result handle(Resource resource) {
+        if (false) {
+            return null;
+        } else {
+            return this.loader.handle(resource);
+        }
     }
 }

@@ -1,9 +1,8 @@
-package com.ytzhang.test.batchload;
-
+package com.ytzhang.test.batchload.loader;
 
 import java.util.List;
 
-import com.ytzhang.test.batchload.loader.LassenLoader;
+import com.ytzhang.test.batchload.model.Result;
 import org.springframework.core.io.Resource;
 
 /**
@@ -13,6 +12,9 @@ import org.springframework.core.io.Resource;
  * </pre>
  */
 public abstract class AbstractLassenLoader<T> implements LassenLoader<T> {
+
+    protected AbstractLassenLoader loader;
+
     @Override
     public Resource load(String path) {
         return null;

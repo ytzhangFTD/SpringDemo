@@ -3,6 +3,7 @@ package com.ytzhang.test.batchload.loader;
 
 import java.util.List;
 
+import com.ytzhang.test.batchload.model.Result;
 import org.springframework.core.io.Resource;
 
 /**
@@ -41,5 +42,7 @@ public interface LassenLoader<T> {
      * @param data
      */
     void save(T data);
+
+    Result handle(Resource resource);
 
 }

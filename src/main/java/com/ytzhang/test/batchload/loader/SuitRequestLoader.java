@@ -9,7 +9,6 @@ package com.ytzhang.test.batchload.loader;
 
 import java.util.List;
 
-import com.ytzhang.test.batchload.AbstractLassenLoader;
 import com.ytzhang.test.batchload.model.SuitRequest;
 import org.springframework.core.io.Resource;
 
