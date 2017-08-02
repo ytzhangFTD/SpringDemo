@@ -43,6 +43,4 @@ public interface LassenLoader<T> {
      */
     void save(T data);
 
-    Result handle(Resource resource);
-
 }

@@ -42,12 +42,4 @@ public class CaseLoader extends AbstractLassenLoader<LegalCase> {
         System.out.println("save legalcase");
     }
 
-    @Override
-    public Result handle(Resource resource) {
-        if (false) {
-            return null;
-        } else {
-            return this.loader.handle(resource);
-        }
-    }
 }

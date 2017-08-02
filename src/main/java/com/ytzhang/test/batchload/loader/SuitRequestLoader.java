@@ -9,6 +9,7 @@ package com.ytzhang.test.batchload.loader;
 
 import java.util.List;
 
+import com.ytzhang.test.batchload.model.Result;
 import com.ytzhang.test.batchload.model.SuitRequest;
 import org.springframework.core.io.Resource;
 
@@ -33,4 +34,5 @@ public class SuitRequestLoader extends AbstractLassenLoader<SuitRequest> {
     public void save(SuitRequest data) {
         super.save(data);
     }
+
 }

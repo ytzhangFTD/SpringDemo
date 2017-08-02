@@ -6,4 +6,19 @@
     <bean id="caseLoader" class="com.ytzhang.test.batchload.loader.CaseLoader"/>
     <bean id="caseLoadFacadeImpl" class="com.ytzhang.test.batchload.CaseLoadFacadeImpl"/>
     <bean id="caseReader" class="com.ytzhang.test.batchload.reader.CaseExcelReader"/>
+
+
+
+
+
+    <!--批量导入职责链设计-->
+    <bean id="caseHandler" class="com.ytzhang.test.batchload2.CaseHandler">
+        <property name="handler" ref="suitEvidenceHandler"/>
+    </bean>
+
+    <bean id="suitEvidenceHandler" class="com.ytzhang.test.batchload2.SuitEvidenceHandler">
+        <property name="suitEvidenceLoader" ref="suitEvidenceLoader"/>
+    </bean>
+
+    <bean id="suitEvidenceLoader" class="com.ytzhang.test.batchload2.loader.SuitEvidenceLoader"/>
 </beans>
