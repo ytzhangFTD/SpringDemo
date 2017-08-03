@@ -7,6 +7,8 @@ package com.ytzhang.test.batchload2;
  * into with Alibaba.com.
  */
 
+import java.util.Map;
+
 /**
  * <pre>
  *  类Request的实现描述：TODO 类实现描述
@@ -14,4 +16,23 @@ package com.ytzhang.test.batchload2;
  * </pre>
  */
 public class Request {
+    private int batch;
+
+    public int getBatch() {
+        return batch;
+    }
+
+    public void setBatch(int batch) {
+        this.batch = batch;
+    }
+
+    private Map<String, String> dataMap;
+
+    public Map<String, String> getDataMap() {
+        return dataMap;
+    }
+
+    public void setDataMap(Map<String, String> dataMap) {
+        this.dataMap = dataMap;
+    }
 }

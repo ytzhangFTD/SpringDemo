@@ -7,6 +7,9 @@ package com.ytzhang.test.batchload2;
  * into with Alibaba.com.
  */
 
+import java.util.List;
+
+import com.ytzhang.test.batchload.model.SuitEvidence;
 import com.ytzhang.test.batchload2.loader.Loader;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -19,15 +22,10 @@ import org.springframework.core.io.Resource;
  */
 public class SuitEvidenceHandler extends AbstractHandler {
 
-    private Loader suitEvidenceLoader;
+    private Loader<SuitEvidence> suitEvidenceLoader;
 
-    public void setSuitEvidenceLoader(Loader suitEvidenceLoader) {
+    public void setSuitEvidenceLoader(Loader<SuitEvidence> suitEvidenceLoader) {
         this.suitEvidenceLoader = suitEvidenceLoader;
-    }
-
-    @Override
-    public void handle(Request request) {
-        bizHandler(request);
     }
 
     @Override

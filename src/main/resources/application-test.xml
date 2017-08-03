@@ -12,13 +12,25 @@
 
 
     <!--批量导入职责链设计-->
+    <bean id="validHandler" class="com.ytzhang.test.batchload2.ValidHandler">
+        <property name="handler" ref="endHandler"/>
+    </bean>
     <bean id="caseHandler" class="com.ytzhang.test.batchload2.CaseHandler">
+        <property name="handler" ref="suitRequestHandler"/>
+    </bean>
+    <bean id="suitRequestHandler" class="com.ytzhang.test.batchload2.SuitRequestHandler">
+        <property name="handler" ref="suitEntityHandler"/>
+    </bean>
+    <bean id="suitEntityHandler" class="com.ytzhang.test.batchload2.SuitEntityHandler">
         <property name="handler" ref="suitEvidenceHandler"/>
     </bean>
 
     <bean id="suitEvidenceHandler" class="com.ytzhang.test.batchload2.SuitEvidenceHandler">
+        <property name="handler" ref="endHandler"/>
         <property name="suitEvidenceLoader" ref="suitEvidenceLoader"/>
     </bean>
+    <bean id="endHandler" class="com.ytzhang.test.batchload2.EndHandler"/>
+
 
     <bean id="suitEvidenceLoader" class="com.ytzhang.test.batchload2.loader.SuitEvidenceLoader"/>
 </beans>

@@ -7,6 +7,12 @@ package com.ytzhang.test.batchload2;
  * into with Alibaba.com.
  */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -26,12 +32,55 @@ public class Client {
     @Before
     public void before() {
         context = new ClassPathXmlApplicationContext(new String[] {"classpath:application-test.xml"});
-        caseHandler= (Handler)context.getBean("caseHandler");
+        caseHandler = (Handler)context.getBean("validHandler");
     }
+
     @Test
-    public void test(){
-        Request request=new Request();
-        caseHandler.handle(request);
+    public void test() throws InterruptedException {
+        Request request = new Request();
+        Map<String, String> dataMap = new HashMap<String, String>();
+        for (int i = 0; i < 100; i++) {
+            dataMap.put(i + "", "test" + i);
+        }
+        request.setDataMap(dataMap);
+        List<Request> requestList = diviceRequest(request);
+        long before = System.currentTimeMillis();
+        for (Request t : requestList) {
+            MyThread myThread = new MyThread(t,caseHandler);
+            Thread thread=new Thread(myThread);
+            thread.start();
+        }
+        long after = System.currentTimeMillis();
+        long l = after - before;
+        System.out.println("thread1 ");
+        Thread.sleep(1000L);
+    }
+
+    @Test
+    public void test2() {
+    }
+
+    private List<Request> diviceRequest(Request request) {
+        List<Request> requestList = new ArrayList<Request>(10);
+        Map<String, String> dataMap = request.getDataMap();
+        int i = 0;
+        Map<String, String> dataTemp = null;
+        Request requestTemp = null;
+        for (Entry<String, String> entry : dataMap.entrySet()) {
+            if (i % 10 == 0) {
+                dataTemp = new HashMap<String, String>();
+                requestTemp = new Request();
+            }
+            dataTemp.put(entry.getKey(), entry.getValue());
+            requestTemp.setBatch(i % 10);
+            if (i % 10 == 0) {
+                requestTemp.setDataMap(dataTemp);
+                requestList.add(requestTemp);
+            }
+            i++;
+        }
+        return requestList;
+
     }
 
 }
